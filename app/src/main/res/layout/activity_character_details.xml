@@ -2,9 +2,9 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cor_character"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/cor_character">
+    android:layout_height="match_parent">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -30,8 +30,7 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:animateLayoutChanges="true">
+                android:layout_height="wrap_content">
 
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
@@ -42,7 +41,8 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:padding="16dp">
+                        android:padding="16dp"
+                        android:animateLayoutChanges="true">
 
                         <androidx.constraintlayout.widget.Guideline
                             android:id="@+id/guideline_middle"
@@ -58,6 +58,7 @@
                             android:layout_marginEnd="16dp"
                             android:background="@drawable/image_border"
                             android:gravity="center"
+                            app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toStartOf="@id/guideline_middle"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
@@ -65,7 +66,7 @@
 
                         <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/txt_name"
-                            style="@style/TextAppearance.MaterialComponents.Headline6"
+                            style="@style/TextAppearance.App.Body2"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="16dp"
@@ -78,10 +79,11 @@
 
                         <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/txt_description"
-                            style="@style/TextAppearance.MaterialComponents.Caption"
+                            style="@style/TextAppearance.App.Overline"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="16dp"
+                            android:layout_marginTop="8dp"
                             android:textColor="@android:color/primary_text_light"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toEndOf="@id/guideline_middle"
