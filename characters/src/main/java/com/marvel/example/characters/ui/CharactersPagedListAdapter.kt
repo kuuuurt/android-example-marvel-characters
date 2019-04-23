@@ -10,7 +10,9 @@ import com.marvel.example.core.ui.BasePagedListAdapter
 import com.marvel.example.characters.R
 import com.marvel.example.core.app.GlideApp
 import com.marvel.example.core.models.character.Character
+import com.marvel.example.core.utils.Activities
 import com.marvel.example.core.utils.Extras
+import com.marvel.example.core.utils.intentTo
 import com.marvel.example.core.views.LoadingView
 
 /**
@@ -46,8 +48,8 @@ class CharactersPagedListAdapter : BasePagedListAdapter<Character>(
                     .into(imgThumbnail)
 
                 setOnClickListener {
-                    val intent = Intent(context, Class.forName("com.marvel.example.characterdetails.ui.CharacterDetailsActivity"))
-                        .putExtra(Extras.CharacterDetails.CHARACTER_ID, character.id)
+                    val intent = context.intentTo(Activities.CharacterDetails)
+                        .putExtra(Activities.CharacterDetails.EXTRA_CHARACTER_ID, character.id)
 
                     context.startActivity(intent)
                 }
