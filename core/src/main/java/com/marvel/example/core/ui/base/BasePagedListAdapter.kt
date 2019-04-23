@@ -1,13 +1,10 @@
-package com.got.example.ui.base
+package com.marvel.example.ui.base
 
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.paging.PagedList
 import androidx.paging.PagedListAdapter
-import java.util.ArrayList
 
 /**
  * Copyright 2018, Kurt Renzo Acosta, All rights reserved.
