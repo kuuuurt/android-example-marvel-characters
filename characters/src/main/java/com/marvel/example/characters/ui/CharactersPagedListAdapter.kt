@@ -46,7 +46,7 @@ class CharactersPagedListAdapter : BasePagedListAdapter<Character>(
                     .into(imgThumbnail)
 
                 setOnClickListener {
-                    val intent = Intent(context, CharacterDetailsActivity::class.java)
+                    val intent = Intent(context, Class.forName("com.marvel.example.characterdetails.ui.CharacterDetailsActivity"))
                         .putExtra(Extras.CharacterDetails.CHARACTER_ID, character.id)
 
                     context.startActivity(intent)
