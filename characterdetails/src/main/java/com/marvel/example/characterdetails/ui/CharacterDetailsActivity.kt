@@ -16,6 +16,7 @@ import com.marvel.example.characterdetails.R
 import com.marvel.example.core.app.GlideApp
 import com.marvel.example.core.ui.ActionState
 import com.marvel.example.core.ui.BaseActivity
+import com.marvel.example.core.utils.Activities
 import com.marvel.example.core.utils.Extras
 import com.marvel.example.core.utils.livedata.EventObserver
 import com.marvel.example.core.views.LoadingView
@@ -28,7 +29,7 @@ import com.marvel.example.core.views.LoadingView
  */
 class CharacterDetailsActivity : BaseActivity<CharacterDetailsViewModel>() {
     override val viewModel: CharacterDetailsViewModel by lazy {
-        val characterId = intent.getIntExtra(Extras.CharacterDetails.CHARACTER_ID, 0)
+        val characterId = intent.getIntExtra(Activities.CharacterDetails.EXTRA_CHARACTER_ID, 0)
         val factory =
             CharacterDetailsViewModelFactory(characterId)
 
