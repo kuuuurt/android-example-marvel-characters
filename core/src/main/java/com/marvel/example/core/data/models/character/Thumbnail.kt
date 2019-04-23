@@ -1,4 +1,4 @@
-package com.marvel.example.core.models.character
+package com.marvel.example.core.data.models.character
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
