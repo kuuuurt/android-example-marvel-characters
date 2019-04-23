@@ -4,8 +4,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.marvel.example.core.ui.ActionState
 import com.marvel.example.core.ui.BaseViewModel
+import com.marvel.example.core.domain.characterdetails.GetCharacterDetailsUseCase
 import com.marvel.example.core.utils.livedata.Event
 import com.marvel.example.core.utils.livedata.toEvent
+
 import kotlinx.coroutines.launch
 import java.lang.Exception
 

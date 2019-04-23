@@ -6,12 +6,13 @@ import androidx.lifecycle.Transformations
 import androidx.paging.DataSource
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
-import com.marvel.example.core.models.None
-import com.marvel.example.core.repositories.characters.CharactersDataSource
 import com.marvel.example.core.ui.ActionState
 import com.marvel.example.core.ui.BaseViewModel
+import com.marvel.example.core.data.models.None
+import com.marvel.example.core.data.models.character.Character
+import com.marvel.example.core.data.repositories.characters.CharactersDataSource
+import com.marvel.example.core.domain.characters.GetCharactersUseCase
 import com.marvel.example.core.utils.livedata.Event
-import com.marvel.example.core.models.character.Character
 import kotlinx.coroutines.runBlocking
 
 /**

@@ -1,4 +1,4 @@
-package com.marvel.example.core.repositories.base.network.response
+package com.marvel.example.core.data.repositories.base.network.response
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
