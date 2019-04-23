@@ -1,4 +1,4 @@
-package com.marvel.example.core.ui.characters
+package com.marvel.example.characters.ui
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

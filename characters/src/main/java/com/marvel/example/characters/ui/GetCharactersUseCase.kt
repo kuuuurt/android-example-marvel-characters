@@ -1,4 +1,4 @@
-package com.marvel.example.core.ui.characters
+package com.marvel.example.characters.ui
 
 import com.marvel.example.core.repositories.characters.CharactersRepository
 import com.marvel.example.core.models.None

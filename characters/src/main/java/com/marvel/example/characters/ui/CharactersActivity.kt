@@ -1,11 +1,11 @@
-package com.marvel.example.core.ui.characters
+package com.marvel.example.characters.ui
 
 import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import com.marvel.example.core.R
+import com.marvel.example.characters.R
 import com.marvel.example.core.ui.base.ActionState
 import com.marvel.example.core.ui.base.BaseActivity
 import com.marvel.example.core.utils.livedata.EventObserver

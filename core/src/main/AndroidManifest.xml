@@ -4,12 +4,6 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application android:theme="@style/Theme.App">
-        <activity android:name="com.marvel.example.core.ui.characters.CharactersActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
         <activity android:name="com.marvel.example.core.ui.characterdetails.CharacterDetailsActivity" />
     </application>
 </manifest>

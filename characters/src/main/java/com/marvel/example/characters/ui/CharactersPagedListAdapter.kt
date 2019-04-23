@@ -1,4 +1,4 @@
-package com.marvel.example.core.ui.characters
+package com.marvel.example.characters.ui
 
 import android.content.Intent
 import android.view.View
@@ -7,7 +7,7 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.marvel.example.ui.base.BasePagedListAdapter
-import com.marvel.example.core.R
+import com.marvel.example.characters.R
 import com.marvel.example.core.app.GlideApp
 import com.marvel.example.core.models.character.Character
 import com.marvel.example.core.ui.characterdetails.CharacterDetailsActivity
