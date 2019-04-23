@@ -1,8 +1,8 @@
-package com.marvel.example.ui.characterdetails
+package com.marvel.example.domain.characterdetails
 
-import com.marvel.example.models.character.Character
-import com.marvel.example.repositories.characters.CharactersRepository
-import com.marvel.example.ui.base.BaseUseCase
+import com.marvel.example.data.models.character.Character
+import com.marvel.example.data.repositories.characters.CharactersRepository
+import com.marvel.example.domain.base.BaseUseCase
 
 /**
  * Copyri}ght (c) 2019, Kurt Renzo Acosta, All rights reserved.

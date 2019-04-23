@@ -1,9 +1,9 @@
-package com.marvel.example.repositories.characters
+package com.marvel.example.data.repositories.characters
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.PositionalDataSource
-import com.marvel.example.models.character.Character
+import com.marvel.example.data.models.character.Character
 import com.marvel.example.ui.base.ActionState
 import com.marvel.example.utils.livedata.Event
 import com.marvel.example.utils.livedata.toEvent

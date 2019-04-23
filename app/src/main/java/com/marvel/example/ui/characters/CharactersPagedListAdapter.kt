@@ -4,14 +4,13 @@ import android.content.Intent
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.constraintlayout.widget.Group
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.got.example.ui.base.BasePagedListAdapter
 import com.marvel.example.R
 import com.marvel.example.app.GlideApp
-import com.marvel.example.models.character.Character
+import com.marvel.example.data.models.character.Character
 import com.marvel.example.ui.characterdetails.CharacterDetailsActivity
 import com.marvel.example.utils.Extras
 import com.marvel.example.views.LoadingView

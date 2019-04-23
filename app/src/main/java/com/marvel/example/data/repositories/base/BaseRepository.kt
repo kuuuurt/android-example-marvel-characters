@@ -1,4 +1,4 @@
-package com.marvel.example.repositories.base
+package com.marvel.example.data.repositories.base
 
 import com.marvel.example.BuildConfig
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory

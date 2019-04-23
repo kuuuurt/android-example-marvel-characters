@@ -2,7 +2,8 @@ package com.marvel.example.ui.characters
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.marvel.example.repositories.characters.CharactersRepository
+import com.marvel.example.domain.characters.GetCharactersUseCase
+import com.marvel.example.data.repositories.characters.CharactersRepository
 
 /**
  * Copyright (c) 2019, Kurt Renzo Acosta, All rights reserved.
@@ -13,6 +14,10 @@ import com.marvel.example.repositories.characters.CharactersRepository
 class CharactersViewModelFactory : ViewModelProvider.NewInstanceFactory() {
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        return CharactersViewModel(GetCharactersUseCase(CharactersRepository)) as T
+        return CharactersViewModel(
+            GetCharactersUseCase(
+                CharactersRepository
+            )
+        ) as T
     }
 }

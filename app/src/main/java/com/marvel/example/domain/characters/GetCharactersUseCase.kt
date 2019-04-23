@@ -1,9 +1,9 @@
-package com.marvel.example.ui.characters
+package com.marvel.example.domain.characters
 
-import com.marvel.example.repositories.characters.CharactersRepository
-import com.marvel.example.models.None
-import com.marvel.example.repositories.characters.CharactersDataSource
-import com.marvel.example.ui.base.BaseUseCase
+import com.marvel.example.data.repositories.characters.CharactersRepository
+import com.marvel.example.data.models.None
+import com.marvel.example.data.repositories.characters.CharactersDataSource
+import com.marvel.example.domain.base.BaseUseCase
 
 /**
  * Copyright (c) 2019, Kurt Renzo Acosta, All rights reserved.

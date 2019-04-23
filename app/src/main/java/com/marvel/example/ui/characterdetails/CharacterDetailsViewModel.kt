@@ -2,6 +2,7 @@ package com.marvel.example.ui.characterdetails
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.marvel.example.domain.characterdetails.GetCharacterDetailsUseCase
 import com.marvel.example.ui.base.ActionState
 import com.marvel.example.ui.base.BaseViewModel
 import com.marvel.example.utils.livedata.Event

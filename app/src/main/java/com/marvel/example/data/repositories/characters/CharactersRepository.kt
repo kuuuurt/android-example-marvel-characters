@@ -1,7 +1,7 @@
-package com.marvel.example.repositories.characters
+package com.marvel.example.data.repositories.characters
 
-import com.marvel.example.repositories.base.BaseRepository
-import com.marvel.example.repositories.characters.network.CharactersApi
+import com.marvel.example.data.repositories.base.BaseRepository
+import com.marvel.example.data.repositories.characters.network.CharactersApi
 
 /**
  * Copyright (c) 2019, Kurt Renzo Acosta, All rights reserved.
