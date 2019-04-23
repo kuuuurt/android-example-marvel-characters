@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.PositionalDataSource
 import com.marvel.example.core.models.character.Character
-import com.marvel.example.core.ui.base.ActionState
+import com.marvel.example.core.ui.ActionState
 import com.marvel.example.core.utils.livedata.Event
 import com.marvel.example.core.utils.livedata.toEvent
 import kotlinx.coroutines.GlobalScope

@@ -8,8 +8,8 @@ import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
 import com.marvel.example.core.models.None
 import com.marvel.example.core.repositories.characters.CharactersDataSource
-import com.marvel.example.core.ui.base.ActionState
-import com.marvel.example.core.ui.base.BaseViewModel
+import com.marvel.example.core.ui.ActionState
+import com.marvel.example.core.ui.BaseViewModel
 import com.marvel.example.core.utils.livedata.Event
 import com.marvel.example.core.models.character.Character
 import kotlinx.coroutines.runBlocking

@@ -6,11 +6,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.marvel.example.ui.base.BasePagedListAdapter
+import com.marvel.example.core.ui.BasePagedListAdapter
 import com.marvel.example.characters.R
 import com.marvel.example.core.app.GlideApp
 import com.marvel.example.core.models.character.Character
-import com.marvel.example.core.ui.characterdetails.CharacterDetailsActivity
 import com.marvel.example.core.utils.Extras
 import com.marvel.example.core.views.LoadingView
 
@@ -47,7 +46,7 @@ class CharactersPagedListAdapter : BasePagedListAdapter<Character>(
                     .into(imgThumbnail)
 
                 setOnClickListener {
-                    val intent = Intent(context, CharacterDetailsActivity::class.java)
+                    val intent = Intent(context, Class.forName("com.marvel.example.characterdetails.ui.CharacterDetailsActivity"))
                         .putExtra(Extras.CharacterDetails.CHARACTER_ID, character.id)
 
                     context.startActivity(intent)

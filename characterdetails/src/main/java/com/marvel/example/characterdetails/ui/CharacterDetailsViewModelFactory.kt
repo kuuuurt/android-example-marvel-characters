@@ -1,4 +1,4 @@
-package com.marvel.example.core.ui.characterdetails
+package com.marvel.example.characterdetails.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

@@ -2,8 +2,4 @@
     package="com.marvel.example.core">
 
     <uses-permission android:name="android.permission.INTERNET" />
-
-    <application android:theme="@style/Theme.App">
-        <activity android:name="com.marvel.example.core.ui.characterdetails.CharacterDetailsActivity" />
-    </application>
 </manifest>

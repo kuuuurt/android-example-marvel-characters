@@ -1,4 +1,4 @@
-package com.marvel.example.core.ui.base
+package com.marvel.example.core.ui
 
 import android.content.pm.ActivityInfo
 import android.os.Bundle

@@ -1,4 +1,4 @@
-package com.marvel.example.core.ui.base
+package com.marvel.example.core.ui
 
 /**
  * Copyright 2018, Kurt Renzo Acosta, All rights reserved.

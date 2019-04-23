@@ -6,8 +6,8 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.marvel.example.characters.R
-import com.marvel.example.core.ui.base.ActionState
-import com.marvel.example.core.ui.base.BaseActivity
+import com.marvel.example.core.ui.ActionState
+import com.marvel.example.core.ui.BaseActivity
 import com.marvel.example.core.utils.livedata.EventObserver
 import com.marvel.example.core.views.EmptyView
 import com.marvel.example.core.views.LoadingView

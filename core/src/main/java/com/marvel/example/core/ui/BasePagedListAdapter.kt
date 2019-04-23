@@ -1,11 +1,10 @@
-package com.marvel.example.core.ui.base
+package com.marvel.example.core.ui
 
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import java.util.ArrayList
+import androidx.paging.PagedListAdapter
 
 /**
  * Copyright 2018, Kurt Renzo Acosta, All rights reserved.
@@ -14,18 +13,14 @@ import java.util.ArrayList
  * @since 12/09/2018
  */
 
-abstract class BaseListAdapter<T>(
+abstract class BasePagedListAdapter<T>(
     itemsSame: (T, T) -> Boolean,
     contentsSame: (T, T) -> Boolean
-) : ListAdapter<T, RecyclerView.ViewHolder>(object : DiffUtil.ItemCallback<T>() {
+) : PagedListAdapter<T, RecyclerView.ViewHolder>(object : DiffUtil.ItemCallback<T>() {
     override fun areItemsTheSame(oldItem: T, newItem: T): Boolean = itemsSame(oldItem, newItem)
     override fun areContentsTheSame(oldItem: T, newItem: T): Boolean = contentsSame(oldItem, newItem)
 }) {
     abstract val itemLayout: Int
-
-    override fun submitList(list: List<T>?) {
-        super.submitList(ArrayList<T>(list ?: listOf()))
-    }
 
     override fun onBindViewHolder(holder: androidx.recyclerview.widget.RecyclerView.ViewHolder, position: Int) {
         when (getItemViewType(position)) {

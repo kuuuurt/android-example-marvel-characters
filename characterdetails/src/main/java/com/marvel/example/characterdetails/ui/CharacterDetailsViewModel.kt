@@ -1,9 +1,9 @@
-package com.marvel.example.core.ui.characterdetails
+package com.marvel.example.characterdetails.ui
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.marvel.example.core.ui.base.ActionState
-import com.marvel.example.core.ui.base.BaseViewModel
+import com.marvel.example.core.ui.ActionState
+import com.marvel.example.core.ui.BaseViewModel
 import com.marvel.example.core.utils.livedata.Event
 import com.marvel.example.core.utils.livedata.toEvent
 import kotlinx.coroutines.launch

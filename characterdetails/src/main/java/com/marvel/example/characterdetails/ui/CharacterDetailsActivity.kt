@@ -1,4 +1,4 @@
-package com.marvel.example.core.ui.characterdetails
+package com.marvel.example.characterdetails.ui
 
 import android.view.View
 import android.widget.Toast
@@ -12,10 +12,10 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.google.android.material.snackbar.Snackbar
-import com.marvel.example.core.R
+import com.marvel.example.characterdetails.R
 import com.marvel.example.core.app.GlideApp
-import com.marvel.example.core.ui.base.ActionState
-import com.marvel.example.core.ui.base.BaseActivity
+import com.marvel.example.core.ui.ActionState
+import com.marvel.example.core.ui.BaseActivity
 import com.marvel.example.core.utils.Extras
 import com.marvel.example.core.utils.livedata.EventObserver
 import com.marvel.example.core.views.LoadingView
@@ -29,7 +29,8 @@ import com.marvel.example.core.views.LoadingView
 class CharacterDetailsActivity : BaseActivity<CharacterDetailsViewModel>() {
     override val viewModel: CharacterDetailsViewModel by lazy {
         val characterId = intent.getIntExtra(Extras.CharacterDetails.CHARACTER_ID, 0)
-        val factory = CharacterDetailsViewModelFactory(characterId)
+        val factory =
+            CharacterDetailsViewModelFactory(characterId)
 
         ViewModelProviders.of(this, factory).get(CharacterDetailsViewModel::class.java)
     }
