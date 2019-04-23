@@ -1,9 +1,9 @@
-package com.marvel.example.core.repositories.characters
+package com.marvel.example.core.data.repositories.characters
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.PositionalDataSource
-import com.marvel.example.core.models.character.Character
+import com.marvel.example.core.data.models.character.Character
 import com.marvel.example.core.ui.base.ActionState
 import com.marvel.example.core.utils.livedata.Event
 import com.marvel.example.core.utils.livedata.toEvent
@@ -32,7 +32,8 @@ class CharactersDataSource(
         GlobalScope.launch {
             _charactersState.postValue(ActionState.Loading.toEvent())
             try {
-                val marvelApiCharactersResponse = charactersRepository.getCharacters()
+                val marvelApiCharactersResponse =
+                    CharactersRepository.getCharacters()
 
                 callback.onResult(
                     marvelApiCharactersResponse.results,
@@ -50,7 +51,9 @@ class CharactersDataSource(
         GlobalScope.launch {
             try {
                 val marvelApiCharactersResponse =
-                    charactersRepository.getCharacters(params.startPosition)
+                    CharactersRepository.getCharacters(
+                        params.startPosition
+                    )
 
                 callback.onResult(marvelApiCharactersResponse.results)
                 _charactersState.postValue(ActionState.Complete.toEvent())

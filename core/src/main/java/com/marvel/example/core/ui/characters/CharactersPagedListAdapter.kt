@@ -4,15 +4,16 @@ import android.content.Intent
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import com.got.example.ui.base.BasePagedListAdapter
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.got.example.ui.base.BasePagedListAdapter
 import com.marvel.example.core.R
 import com.marvel.example.core.app.GlideApp
-import com.marvel.example.core.models.character.Character
+import com.marvel.example.core.data.models.character.Character
 import com.marvel.example.core.ui.characterdetails.CharacterDetailsActivity
 import com.marvel.example.core.utils.Extras
 import com.marvel.example.core.views.LoadingView
+
 
 /**
  * Copyright (c) 2019, Kurt Renzo Acosta, All rights reserved.

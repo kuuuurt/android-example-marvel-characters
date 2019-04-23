@@ -1,4 +1,4 @@
-package com.marvel.example.core.models
+package com.marvel.example.core.data.models
 
 /**
  * Copyright (c) 2019, Kurt Renzo Acosta, All rights reserved.
