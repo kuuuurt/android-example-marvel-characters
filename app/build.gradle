@@ -17,18 +17,18 @@ android {
         debug {
             crunchPngs false
 
-            buildConfigField "String", "MARVEL_implementation_BASE_URL", project.property("app.marvel_base_url")
-            buildConfigField "String", "MARVEL_implementation_PUBLIC_KEY", project.property("app.marvel_public_implementation_key")
-            buildConfigField "String", "MARVEL_implementation_HASH", project.property("app.marvel_hash")
+            buildConfigField "String", "MARVEL_API_BASE_URL", project.property("app.marvel_base_url")
+            buildConfigField "String", "MARVEL_API_PUBLIC_KEY", project.property("app.marvel_public_api_key")
+            buildConfigField "String", "MARVEL_API_HASH", project.property("app.marvel_hash")
         }
         release {
             crunchPngs true
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
 
-            buildConfigField "String", "MARVEL_implementation_BASE_URL", project.property("app.marvel_base_url")
-            buildConfigField "String", "MARVEL_implementation_PUBLIC_KEY", project.property("app.marvel_public_implementation_key")
-            buildConfigField "String", "MARVEL_implementation_HASH", project.property("app.marvel_hash")
+            buildConfigField "String", "MARVEL_API_BASE_URL", project.property("app.marvel_base_url")
+            buildConfigField "String", "MARVEL_API_PUBLIC_KEY", project.property("app.marvel_public_api_key")
+            buildConfigField "String", "MARVEL_API_HASH", project.property("app.marvel_hash")
         }
     }
 }
