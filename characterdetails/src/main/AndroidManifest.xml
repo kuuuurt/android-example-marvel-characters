@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-package="com.marvel.example.characterdetails">
+    package="com.marvel.example.characterdetails">
 
-<application android:theme="@style/Theme.App">
-    <activity android:name=".ui.CharacterDetailsActivity" />
-</application>
+    <application android:theme="@style/Theme.App">
+        <activity android:name=".ui.CharacterDetailsActivity" />
+    </application>
 </manifest>
