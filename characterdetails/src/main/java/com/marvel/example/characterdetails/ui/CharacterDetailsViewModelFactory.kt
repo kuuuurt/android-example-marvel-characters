@@ -3,7 +3,7 @@ package com.marvel.example.characterdetails.ui
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.marvel.example.core.data.repositories.characters.CharactersRepository
-import com.marvel.example.core.domain.characterdetails.GetCharacterDetailsUseCase
+import com.marvel.example.characterdetails.domain.GetCharacterDetailsUseCase
 
 /**
  * Copyright (c) 2019, Kurt Renzo Acosta, All rights reserved.

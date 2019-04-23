@@ -1,8 +1,8 @@
-package com.marvel.example.core.domain.characterdetails
+package com.marvel.example.characterdetails.domain
 
 import com.marvel.example.core.data.models.character.Character
 import com.marvel.example.core.data.repositories.characters.CharactersRepository
-import com.marvel.example.core.domain.base.BaseUseCase
+import com.marvel.example.core.domain.BaseUseCase
 
 /**
  * Copyri}ght (c) 2019, Kurt Renzo Acosta, All rights reserved.

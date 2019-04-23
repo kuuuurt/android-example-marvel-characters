@@ -1,4 +1,4 @@
-package com.marvel.example.core.domain.base
+package com.marvel.example.core.domain
 
 import java.lang.Exception
 
