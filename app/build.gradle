@@ -1,9 +1,5 @@
 apply plugin: 'com.android.application'
 
-def secretPropertiesFile = rootProject.file("secrets.properties")
-def secretProperties = new Properties()
-secretProperties.load(new FileInputStream(secretPropertiesFile))
-
 android {
     compileSdkVersion rootProject.compileSdkVersion
 
@@ -16,10 +12,6 @@ android {
         versionName "1.0.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-
-        buildConfigField "String", "MARVEL_API_BASE_URL", secretProperties["app.marvel_base_url"]
-        buildConfigField "String", "MARVEL_API_PUBLIC_KEY", secretProperties["app.marvel_public_api_key"]
-        buildConfigField "String", "MARVEL_API_HASH", secretProperties["app.marvel_hash"]
     }
     buildTypes {
         debug {
