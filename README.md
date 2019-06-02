@@ -30,9 +30,9 @@ This project is built using Clean Architecture and is structured in the followin
 
 ## Marvel API
 
-The API keys are hardcoded in **gradle.properties** and loaded into the app as **BuildConfig** fields. 
+The API keys should be in a **secrets.properties** in the root folder and will be loaded into the app as **BuildConfig** fields.
 
-The project currently has my API keys and you can use them but they're capped with 3000 calls/day but you can create your own API keys on [Marvel's developer site] (https://developer.marvel.com/documentation/getting_started)
+Create your own API keys on [Marvel's developer site] (https://developer.marvel.com/documentation/getting_started)
 
 The public api key is in **app.marvel\_public\_api\_key** and the hash is in **app.marvel\_hash**. I hashed my keys before this so I can do away with hashing inside the Android App. Read more about their API Authorization [here](https://developer.marvel.com/documentation/authorization).
 
