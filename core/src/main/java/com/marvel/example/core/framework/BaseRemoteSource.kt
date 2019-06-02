@@ -1,4 +1,4 @@
-package com.marvel.example.core.data.repositories.base
+package com.marvel.example.core.framework
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.marvel.example.core.BuildConfig
@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit
  * @author Kurt Renzo Acosta
  * @since 19/04/2019
  */
-abstract class BaseRepository<Api>(clazz: Class<Api>) {
+abstract class BaseRemoteSource<Api>(clazz: Class<Api>) {
     private val baseUrl = BuildConfig.MARVEL_API_BASE_URL
     private val moshi = Moshi.Builder().build()
 

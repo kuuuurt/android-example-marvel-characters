@@ -2,8 +2,9 @@ package com.marvel.example.characterdetails.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.marvel.example.core.data.repositories.characters.CharactersRepository
-import com.marvel.example.characterdetails.domain.GetCharacterDetailsUseCase
+import com.marvel.example.characterdetails.domain.GetCharacterDetails
+import com.marvel.example.core.data.repositories.characters.CharactersRepositoryImpl
+import com.marvel.example.core.framework.characters.CharactersRemoteSourceImpl
 
 /**
  * Copyright (c) 2019, Kurt Renzo Acosta, All rights reserved.
@@ -17,9 +18,7 @@ class CharacterDetailsViewModelFactory(private val characterId: Int) :
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         return CharacterDetailsViewModel(
             characterId,
-            GetCharacterDetailsUseCase(
-                CharactersRepository
-            )
+            GetCharacterDetails(CharactersRepositoryImpl(CharactersRemoteSourceImpl()))
         ) as T
     }
 }

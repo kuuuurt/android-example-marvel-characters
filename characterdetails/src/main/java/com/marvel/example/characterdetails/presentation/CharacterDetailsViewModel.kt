@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.marvel.example.core.presentation.ActionState
 import com.marvel.example.core.presentation.BaseViewModel
-import com.marvel.example.characterdetails.domain.GetCharacterDetailsUseCase
+import com.marvel.example.characterdetails.domain.GetCharacterDetails
 import com.marvel.example.core.presentation.helpers.livedata.Event
 import com.marvel.example.core.presentation.helpers.livedata.toEvent
 
@@ -19,7 +19,7 @@ import java.lang.Exception
  */
 class CharacterDetailsViewModel(
     private val characterId: Int,
-    private val getCharacterDetails: GetCharacterDetailsUseCase
+    private val getCharacterDetails: GetCharacterDetails
 ) : BaseViewModel() {
     private val _name = MutableLiveData<String>()
     val name: LiveData<String> = _name
@@ -41,7 +41,7 @@ class CharacterDetailsViewModel(
         uiScope.launch {
             _getCharacterDetailsState.postValue(ActionState.Loading.toEvent())
             try {
-                val character = getCharacterDetails.execute(characterId)
+                val character = getCharacterDetails(characterId)
 
                 _name.postValue(character.name)
                 _description.postValue(character.description)

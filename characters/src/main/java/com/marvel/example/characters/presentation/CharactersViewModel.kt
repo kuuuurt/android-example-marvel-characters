@@ -8,12 +8,9 @@ import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
 import com.marvel.example.core.presentation.ActionState
 import com.marvel.example.core.presentation.BaseViewModel
-import com.marvel.example.core.domain.entities.None
 import com.marvel.example.core.domain.entities.character.Character
-import com.marvel.example.core.data.repositories.characters.CharactersDataSource
-import com.marvel.example.characters.domain.GetCharactersUseCase
+import com.marvel.example.characters.domain.GetCharacters
 import com.marvel.example.core.presentation.helpers.livedata.Event
-import kotlinx.coroutines.runBlocking
 
 /**
  * Copyright (c) 2019, Kurt Renzo Acosta, All rights reserved.
@@ -21,9 +18,7 @@ import kotlinx.coroutines.runBlocking
  * @author Kurt Renzo Acosta
  * @since 18/04/2019
  */
-class CharactersViewModel(
-    private val getCharacters: GetCharactersUseCase
-) : BaseViewModel() {
+class CharactersViewModel(private val getCharacters: GetCharacters) : BaseViewModel() {
 
 
     private val charactersDataSourceFactory = object : DataSource.Factory<Int, Character>() {
@@ -31,9 +26,7 @@ class CharactersViewModel(
         val charactersDataSource: LiveData<CharactersDataSource> = _charactersDataSource
 
         override fun create(): DataSource<Int, Character> {
-            val newCharactersDataSource = runBlocking {
-                getCharacters.execute(None.INSTANCE)
-            }
+            val newCharactersDataSource = CharactersDataSource(getCharacters)
             _charactersDataSource.postValue(newCharactersDataSource)
             return newCharactersDataSource
         }
