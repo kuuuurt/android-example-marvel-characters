@@ -1,6 +1,6 @@
 package com.marvel.example.core.data.repositories.characters.network
 
-import com.marvel.example.core.data.models.character.Character
+import com.marvel.example.core.domain.entities.character.Character
 import com.marvel.example.core.data.repositories.base.network.response.MarvelApiResponse
 import kotlinx.coroutines.Deferred
 import retrofit2.http.GET

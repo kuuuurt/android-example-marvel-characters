@@ -1,7 +1,7 @@
 package com.marvel.example.characters.domain
 
 import com.marvel.example.core.data.repositories.characters.CharactersRepository
-import com.marvel.example.core.data.models.None
+import com.marvel.example.core.domain.entities.None
 import com.marvel.example.core.data.repositories.characters.CharactersDataSource
 import com.marvel.example.core.domain.BaseUseCase
 

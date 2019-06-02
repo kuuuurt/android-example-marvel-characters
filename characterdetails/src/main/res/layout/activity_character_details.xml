@@ -96,7 +96,7 @@
                             android:layout_height="wrap_content"
                             app:constraint_referenced_ids="txt_name,txt_description" />
 
-                        <com.marvel.example.core.views.LoadingView
+                        <com.marvel.example.core.presentation.views.LoadingView
                             android:id="@+id/loading_character"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"

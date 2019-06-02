@@ -47,7 +47,7 @@
                 tools:visibility="visible"
                 tools:listitem="@layout/list_item_character" />
 
-            <com.marvel.example.core.views.LoadingView
+            <com.marvel.example.core.presentation.views.LoadingView
                 android:id="@+id/loading_characters"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -57,7 +57,7 @@
                 app:layout_constraintStart_toStartOf="@id/rec_characters"
                 app:layout_constraintEnd_toEndOf="@id/rec_characters"/>
 
-            <com.marvel.example.core.views.EmptyView
+            <com.marvel.example.core.presentation.views.EmptyView
                 android:id="@+id/empty_characters"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

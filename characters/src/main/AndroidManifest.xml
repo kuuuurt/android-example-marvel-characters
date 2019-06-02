@@ -2,7 +2,7 @@
     package="com.marvel.example.characters">
 
     <application android:theme="@style/Theme.App">
-        <activity android:name=".ui.CharactersActivity">
+        <activity android:name=".presentation.CharactersActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

@@ -3,10 +3,10 @@ package com.marvel.example.core.data.repositories.characters
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.PositionalDataSource
-import com.marvel.example.core.ui.ActionState
-import com.marvel.example.core.data.models.character.Character
-import com.marvel.example.core.utils.livedata.Event
-import com.marvel.example.core.utils.livedata.toEvent
+import com.marvel.example.core.presentation.ActionState
+import com.marvel.example.core.domain.entities.character.Character
+import com.marvel.example.core.presentation.helpers.livedata.Event
+import com.marvel.example.core.presentation.helpers.livedata.toEvent
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.lang.Exception

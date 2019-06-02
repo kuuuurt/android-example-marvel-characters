@@ -2,6 +2,6 @@
     package="com.marvel.example.characterdetails">
 
     <application android:theme="@style/Theme.App">
-        <activity android:name=".ui.CharacterDetailsActivity" />
+        <activity android:name=".presentation.CharacterDetailsActivity" />
     </application>
 </manifest>

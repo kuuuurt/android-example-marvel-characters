@@ -35,7 +35,7 @@
             app:layout_constraintTop_toBottomOf="@id/img_thumbnail"
             tools:text="Captain Marvel" />
 
-        <com.marvel.example.core.views.LoadingView
+        <com.marvel.example.core.presentation.views.LoadingView
             android:id="@+id/loading_character"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

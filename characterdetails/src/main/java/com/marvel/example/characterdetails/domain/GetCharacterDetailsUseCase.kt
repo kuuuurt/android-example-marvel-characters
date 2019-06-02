@@ -1,11 +1,11 @@
 package com.marvel.example.characterdetails.domain
 
-import com.marvel.example.core.data.models.character.Character
+import com.marvel.example.core.domain.entities.character.Character
 import com.marvel.example.core.data.repositories.characters.CharactersRepository
 import com.marvel.example.core.domain.BaseUseCase
 
 /**
- * Copyri}ght (c) 2019, Kurt Renzo Acosta, All rights reserved.
+ * Copyright (c) 2019, Kurt Renzo Acosta, All rights reserved.
  *
  * @author Kurt Renzo Acosta
  * @since 21/04/2019
