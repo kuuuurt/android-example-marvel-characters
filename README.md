@@ -20,13 +20,17 @@ This project is a sample app created to demonstrate simple modularization on an 
 
 ## Project Structure
 
-This project is built using Clean Architecture and is structured in the following way
+This project is built using Clean Architecture and is structured in the following way:
+
+**presentation** - contains Activities/Fragments and their corresponding ViewModels and Adapters for the presentation layer
+
+**domain** - contains entities and use cases for the presentation layer to access data from the **data** layer
 
 **data** -  contains data models and repositories for getting data
 
-**domain** - contains use cases/interactors for the presentation layer to access data from the **data** layer
+**framework** - contains Activities/Fragments and their corresponding ViewModels and Adapters for the presentation layer
 
-**ui** - contains Activities/Fragments and their corresponding ViewModels and Adapters for the presentation layer
+**di** - contains classes for dependency injection. In this case, Dagger's components and modules.
 
 
 ## Marvel API
@@ -39,12 +43,23 @@ The public api key is in **app.marvel\_public\_api\_key** and the hash is in **a
 
 ## Resources
 
-If you wanna read more about modularization, here are some articles I found helpful:
+Here are the articles I found that helped me come up with this app:
 
+### Clean Architecture:
+- [Clean architecture for Android with Kotlin: a pragmatic approach for starters](https://antonioleiva.com/clean-architecture-android)
+- [Kotlin Clean Architecture](https://proandroiddev.com/kotlin-clean-architecture-1ad42fcd97fa)
+- [Architecting Android...Reloaded](https://fernandocejas.com/2018/05/07/architecting-android-reloaded/)
+
+### Modularization:
 - [Modularization Android Applications](https://medium.com/google-developer-experts/modularizing-android-applications-9e2d18f244a0)
 - [Intro to App Modularization](https://proandroiddev.com/intro-to-app-modularization-42411e4c421e)
 - [Multiple application modules in one project](https://medium.com/mindorks/multiple-application-modules-in-one-android-project-36e86ceb8a9)
 - [Patchwork Plaid - A modularization store](https://medium.com/androiddevelopers/a-patchwork-plaid-monolith-to-modularized-app-60235d9f212e)
+
+### Dagger:
+- [Dependency injection in a multi module project](https://medium.com/androiddevelopers/dependency-injection-in-a-multi-module-project-1a09511c14b7)
+- [That Missing Guide: How to use Dagger2](https://medium.com/@Zhuinden/that-missing-guide-how-to-use-dagger2-ef116fbea97)
+- [Dagger 2 for Android Beginners — Introduction](https://medium.com/@harivigneshjayapalan/dagger-2-for-android-beginners-introduction-be6580cb3edb)
 
 ## Authors
 
