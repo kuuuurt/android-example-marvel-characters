@@ -16,6 +16,7 @@ This project is a sample app created to demonstrate simple modularization on an 
 - Moshi
 - Kotlin Coroutines
 - Glide
+- Dagger 2
 
 ## Project Structure
 
