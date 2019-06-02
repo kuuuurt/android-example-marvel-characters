@@ -10,6 +10,7 @@ import com.marvel.example.core.presentation.helpers.livedata.Event
 import com.marvel.example.core.presentation.helpers.livedata.toEvent
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 /**
  * Copyright (c) 2019, Kurt Renzo Acosta, All rights reserved.
@@ -17,7 +18,7 @@ import kotlinx.coroutines.launch
  * @author Kurt Renzo Acosta
  * @since 20/04/2019
  */
-class CharactersDataSource(
+class CharactersDataSource @Inject constructor(
     private val getCharacters: GetCharacters
 ) : PositionalDataSource<Character>() {
     private val _charactersState = MutableLiveData<Event<ActionState>>()

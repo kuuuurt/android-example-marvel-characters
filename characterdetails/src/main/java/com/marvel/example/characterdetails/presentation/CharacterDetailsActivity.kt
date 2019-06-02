@@ -13,12 +13,16 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.google.android.material.snackbar.Snackbar
 import com.marvel.example.characterdetails.R
+import com.marvel.example.characterdetails.di.CharacterDetailsModule
+import com.marvel.example.characterdetails.di.DaggerCharacterDetailsComponent
 import com.marvel.example.core.presentation.app.GlideApp
 import com.marvel.example.core.presentation.ActionState
 import com.marvel.example.core.presentation.BaseActivity
+import com.marvel.example.core.presentation.app.coreComponent
 import com.marvel.example.core.presentation.helpers.Activities
 import com.marvel.example.core.presentation.helpers.livedata.EventObserver
 import com.marvel.example.core.presentation.views.LoadingView
+import javax.inject.Inject
 
 /**
  * Copyright (c) 2019, Kurt Renzo Acosta, All rights reserved.
@@ -27,14 +31,13 @@ import com.marvel.example.core.presentation.views.LoadingView
  * @since 19/04/2019
  */
 class CharacterDetailsActivity : BaseActivity<CharacterDetailsViewModel>() {
-    override val viewModel: CharacterDetailsViewModel by lazy {
-        val characterId = intent.getIntExtra(Activities.CharacterDetails.EXTRA_CHARACTER_ID, 0)
-        val factory =
-            CharacterDetailsViewModelFactory(characterId)
+    override val layout: Int = R.layout.activity_character_details
 
+    @Inject
+    lateinit var factory: CharacterDetailsViewModelFactory
+    override val viewModel: CharacterDetailsViewModel by lazy {
         ViewModelProviders.of(this, factory).get(CharacterDetailsViewModel::class.java)
     }
-    override val layout: Int = R.layout.activity_character_details
 
     private val tlbCharacterDetails by lazy { findViewById<Toolbar>(R.id.tlb_character_details) }
     private val corCharacter by lazy { findViewById<CoordinatorLayout>(R.id.cor_character) }
@@ -44,6 +47,17 @@ class CharacterDetailsActivity : BaseActivity<CharacterDetailsViewModel>() {
     private val txtDescription by lazy { findViewById<AppCompatTextView>(R.id.txt_description) }
     private val grpDetails by lazy { findViewById<Group>(R.id.grp_details) }
     private val loadingCharacter by lazy { findViewById<LoadingView>(R.id.loading_character) }
+
+    override fun inject() {
+        val characterId = intent.getIntExtra(Activities.CharacterDetails.EXTRA_CHARACTER_ID, 0)
+
+        DaggerCharacterDetailsComponent
+            .builder()
+            .coreComponent(coreComponent())
+            .characterDetailsModule(CharacterDetailsModule(characterId))
+            .build()
+            .inject(this)
+    }
 
 
     override fun setupPage() {

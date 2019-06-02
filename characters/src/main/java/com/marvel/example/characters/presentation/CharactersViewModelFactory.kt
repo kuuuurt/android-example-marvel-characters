@@ -5,6 +5,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.marvel.example.characters.domain.GetCharacters
 import com.marvel.example.core.data.repositories.characters.CharactersRepositoryImpl
 import com.marvel.example.core.framework.characters.CharactersRemoteSourceImpl
+import java.lang.IllegalArgumentException
+import javax.inject.Inject
 
 /**
  * Copyright (c) 2019, Kurt Renzo Acosta, All rights reserved.
@@ -12,15 +14,14 @@ import com.marvel.example.core.framework.characters.CharactersRemoteSourceImpl
  * @author Kurt Renzo Acosta
  * @since 19/04/2019
  */
-class CharactersViewModelFactory : ViewModelProvider.NewInstanceFactory() {
+class CharactersViewModelFactory @Inject constructor(
+    private val charactersDataSourceFactory: CharactersDataSourceFactory
+) : ViewModelProvider.NewInstanceFactory() {
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        return CharactersViewModel(
-            GetCharacters(
-                CharactersRepositoryImpl(
-                    CharactersRemoteSourceImpl()
-                )
-            )
-        ) as T
+        if(modelClass.isAssignableFrom(CharactersViewModel::class.java)) {
+            return CharactersViewModel(charactersDataSourceFactory) as T
+        }
+        throw IllegalArgumentException("Unknown ViewModel Class")
     }
 }

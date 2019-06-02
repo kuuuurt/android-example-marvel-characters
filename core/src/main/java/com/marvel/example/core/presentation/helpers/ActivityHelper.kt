@@ -32,7 +32,7 @@ interface AddressableActivity {
 
 object Activities {
     object CharacterDetails: AddressableActivity {
-        override val className: String = "$PACKAGE_NAME.characterdetails.ui.CharacterDetailsActivity"
+        override val className: String = "$PACKAGE_NAME.characterdetails.presentation.CharacterDetailsActivity"
         const val EXTRA_CHARACTER_ID = "character_id"
     }
 }

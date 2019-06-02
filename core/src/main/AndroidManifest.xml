@@ -2,4 +2,6 @@
     package="com.marvel.example.core">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
+    <application android:name=".presentation.app.MarvelApplication"/>
 </manifest>

@@ -1,6 +1,7 @@
 package com.marvel.example.characters.domain
 
 import com.marvel.example.core.domain.repositories.CharactersRepository
+import javax.inject.Inject
 
 
 /**
@@ -9,6 +10,6 @@ import com.marvel.example.core.domain.repositories.CharactersRepository
  * @author Kurt Renzo Acosta
  * @since 19/04/2019
  */
-class GetCharacters(private val charactersRepository: CharactersRepository) {
+class GetCharacters @Inject constructor(private val charactersRepository: CharactersRepository) {
     suspend operator fun invoke(offset: Int = 0) = charactersRepository.getCharacters(offset)
 }

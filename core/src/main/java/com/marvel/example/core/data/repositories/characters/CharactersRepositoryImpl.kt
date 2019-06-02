@@ -3,6 +3,7 @@ package com.marvel.example.core.data.repositories.characters
 import com.marvel.example.core.domain.entities.PaginatedData
 import com.marvel.example.core.domain.entities.character.Character
 import com.marvel.example.core.domain.repositories.CharactersRepository
+import javax.inject.Inject
 
 /**
  * Copyright (c) 2019, Kurt Renzo Acosta, All rights reserved.
@@ -10,7 +11,7 @@ import com.marvel.example.core.domain.repositories.CharactersRepository
  * @author Kurt Renzo Acosta
  * @since 18/04/2019
  */
-class CharactersRepositoryImpl(
+class CharactersRepositoryImpl @Inject constructor(
     private val charactersRemoteSource: CharactersRemoteSource
 ) : CharactersRepository {
     override suspend fun getCharacters(offset: Int): PaginatedData<Character> {

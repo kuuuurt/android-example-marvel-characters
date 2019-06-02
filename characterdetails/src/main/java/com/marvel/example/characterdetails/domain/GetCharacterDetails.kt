@@ -1,6 +1,7 @@
 package com.marvel.example.characterdetails.domain
 
 import com.marvel.example.core.domain.repositories.CharactersRepository
+import javax.inject.Inject
 
 
 /**
@@ -9,7 +10,7 @@ import com.marvel.example.core.domain.repositories.CharactersRepository
  * @author Kurt Renzo Acosta
  * @since 21/04/2019
  */
-class GetCharacterDetails(private val charactersRepository: CharactersRepository) {
-    suspend operator fun invoke(charactedId: Int) = charactersRepository.getCharacter(charactedId)
+class GetCharacterDetails @Inject constructor(private val charactersRepository: CharactersRepository) {
+    suspend operator fun invoke(characterId: Int) = charactersRepository.getCharacter(characterId)
 }
 

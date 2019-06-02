@@ -19,7 +19,10 @@ abstract class BaseActivity<T : BaseViewModel> : AppCompatActivity() {
     open fun setupInputs() {}
     open fun setupOutputs() {}
 
+    abstract fun inject()
+
     override fun onCreate(savedInstanceState: Bundle?) {
+        inject()
         super.onCreate(savedInstanceState)
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
 
