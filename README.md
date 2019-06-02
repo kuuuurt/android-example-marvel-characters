@@ -1,6 +1,6 @@
 # Marvel App
 
-This project is a sample app created to demonstrate simple modularization on an Android project.
+This project is a sample app created to experiment around Android Development
 
 ## Libraries and Tools Used
 
