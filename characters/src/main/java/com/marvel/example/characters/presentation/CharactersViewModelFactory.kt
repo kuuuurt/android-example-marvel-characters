@@ -15,12 +15,12 @@ import javax.inject.Inject
  * @since 19/04/2019
  */
 class CharactersViewModelFactory @Inject constructor(
-    private val charactersDataSourceFactory: CharactersDataSourceFactory
+    private val getCharacters: GetCharacters
 ) : ViewModelProvider.NewInstanceFactory() {
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         if(modelClass.isAssignableFrom(CharactersViewModel::class.java)) {
-            return CharactersViewModel(charactersDataSourceFactory) as T
+            return CharactersViewModel(getCharacters) as T
         }
         throw IllegalArgumentException("Unknown ViewModel Class")
     }
