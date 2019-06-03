@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
+import com.marvel.example.characters.domain.GetCharacters
 import com.marvel.example.core.presentation.UiState
 import com.marvel.example.core.presentation.BaseViewModel
 import com.marvel.example.core.domain.entities.character.Character
@@ -17,8 +18,10 @@ import javax.inject.Inject
  * @since 18/04/2019
  */
 class CharactersViewModel @Inject constructor(
-    private val charactersDataSourceFactory: CharactersDataSourceFactory
+    getCharacters: GetCharacters
 ) : BaseViewModel() {
+    private val charactersDataSourceFactory = CharactersDataSourceFactory(getCharacters)
+
     private val config = PagedList.Config.Builder()
         .setPageSize(20)
         .setEnablePlaceholders(true)

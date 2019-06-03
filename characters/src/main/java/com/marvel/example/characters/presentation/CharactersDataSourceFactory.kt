@@ -13,9 +13,7 @@ import javax.inject.Inject
  * @author Kurt Renzo Acosta
  * @since 20/04/2019
  */
-class CharactersDataSourceFactory @Inject constructor(
-    private val getCharacters: GetCharacters
-) : DataSource.Factory<Int, Character>() {
+class CharactersDataSourceFactory(private val getCharacters: GetCharacters) : DataSource.Factory<Int, Character>() {
     private val _charactersDataSource = MutableLiveData<CharactersDataSource>()
     val charactersDataSource: LiveData<CharactersDataSource> = _charactersDataSource
 
