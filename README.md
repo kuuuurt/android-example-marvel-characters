@@ -41,6 +41,13 @@ You can create your own API keys on [Marvel's developer site] (https://developer
 
 The public api key is in **app.marvel\_public\_api\_key** and the hash is in **app.marvel\_hash**. I hashed my keys before this so I can do away with hashing inside the Android App. Read more about their API Authorization [here](https://developer.marvel.com/documentation/authorization).
 
+## TODO
+
+- Navigation
+- SQLDelight
+- Unit Testing
+
+
 ## Resources
 
 Here are the articles I found that helped me come up with this app:
