@@ -2,7 +2,7 @@ package com.marvel.example.characterdetails.presentation
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.marvel.example.core.presentation.ActionState
+import com.marvel.example.core.presentation.UiState
 import com.marvel.example.core.presentation.BaseViewModel
 import com.marvel.example.characterdetails.domain.GetCharacterDetails
 import com.marvel.example.core.presentation.helpers.livedata.Event
@@ -30,8 +30,8 @@ class CharacterDetailsViewModel(
     private val _thumbnailUrl = MutableLiveData<String>()
     val thumbnailUrl: LiveData<String> = _thumbnailUrl
 
-    private val _getCharacterDetailsState = MutableLiveData<Event<ActionState>>()
-    val getCharacterDetailsState: LiveData<Event<ActionState>> = _getCharacterDetailsState
+    private val _getCharacterDetailsState = MutableLiveData<Event<UiState>>()
+    val getCharacterDetailsUiState: LiveData<Event<UiState>> = _getCharacterDetailsState
 
     init {
         getCharacterDetails()
@@ -39,7 +39,7 @@ class CharacterDetailsViewModel(
 
     fun getCharacterDetails() {
         uiScope.launch {
-            _getCharacterDetailsState.postValue(ActionState.Loading.toEvent())
+            _getCharacterDetailsState.postValue(UiState.Loading.toEvent())
             try {
                 val character = getCharacterDetails(characterId)
 
@@ -47,9 +47,9 @@ class CharacterDetailsViewModel(
                 _description.postValue(character.description)
                 _thumbnailUrl.postValue(character.thumbnail.getUrl())
 
-                _getCharacterDetailsState.postValue(ActionState.Complete.toEvent())
+                _getCharacterDetailsState.postValue(UiState.Complete.toEvent())
             } catch (exception: Exception) {
-                _getCharacterDetailsState.postValue(ActionState.Error(exception.localizedMessage).toEvent())
+                _getCharacterDetailsState.postValue(UiState.Error(exception.localizedMessage).toEvent())
             }
         }
     }

@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.marvel.example.characters.R
 import com.marvel.example.characters.di.DaggerCharactersComponent
-import com.marvel.example.core.presentation.ActionState
+import com.marvel.example.core.presentation.UiState
 import com.marvel.example.core.presentation.BaseActivity
 import com.marvel.example.core.presentation.app.coreComponent
 import com.marvel.example.core.presentation.helpers.livedata.EventObserver
@@ -63,21 +63,21 @@ class CharactersActivity : BaseActivity<CharactersViewModel>() {
             charactersAdapter.submitList(it)
         })
 
-        viewModel.charactersState.observe(this, EventObserver {
+        viewModel.charactersUiState.observe(this, EventObserver {
             recCharacters.visibility =
-                if (it is ActionState.Complete || swpCharacters.isRefreshing) {
+                if (it is UiState.Complete || swpCharacters.isRefreshing) {
                     View.VISIBLE
                 } else {
                     View.INVISIBLE
                 }
             loadingCharacters.visibility =
-                if (it is ActionState.Loading && !swpCharacters.isRefreshing) {
+                if (it is UiState.Loading && !swpCharacters.isRefreshing) {
                     View.VISIBLE
                 } else {
                     View.GONE
                 }
             emptyCharacters.visibility =
-                if (it is ActionState.Error) {
+                if (it is UiState.Error) {
                     View.VISIBLE
                 } else {
                     View.GONE

@@ -16,7 +16,7 @@ import com.marvel.example.characterdetails.R
 import com.marvel.example.characterdetails.di.CharacterDetailsModule
 import com.marvel.example.characterdetails.di.DaggerCharacterDetailsComponent
 import com.marvel.example.core.presentation.app.GlideApp
-import com.marvel.example.core.presentation.ActionState
+import com.marvel.example.core.presentation.UiState
 import com.marvel.example.core.presentation.BaseActivity
 import com.marvel.example.core.presentation.app.coreComponent
 import com.marvel.example.core.presentation.helpers.Activities
@@ -94,14 +94,14 @@ class CharacterDetailsActivity : BaseActivity<CharacterDetailsViewModel>() {
                 .into(imgThumbnail)
         })
 
-        viewModel.getCharacterDetailsState.observe(this, EventObserver {
-            if (it is ActionState.Error) {
+        viewModel.getCharacterDetailsUiState.observe(this, EventObserver {
+            if (it is UiState.Error) {
                 Toast.makeText(this, it.errorMessage, Toast.LENGTH_SHORT).show()
                 Snackbar.make(corCharacter, it.errorMessage, Snackbar.LENGTH_SHORT).show()
             } else {
-                grpDetails.visibility = if (it is ActionState.Complete) View.VISIBLE else View.GONE
+                grpDetails.visibility = if (it is UiState.Complete) View.VISIBLE else View.GONE
                 loadingCharacter.visibility =
-                    if (it is ActionState.Loading) View.VISIBLE else View.GONE
+                    if (it is UiState.Loading) View.VISIBLE else View.GONE
             }
             swpCharacter.isRefreshing = false
         })

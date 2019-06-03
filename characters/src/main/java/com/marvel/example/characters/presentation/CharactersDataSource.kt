@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.paging.PositionalDataSource
 import com.marvel.example.characters.domain.GetCharacters
 import com.marvel.example.core.domain.entities.character.Character
-import com.marvel.example.core.presentation.ActionState
+import com.marvel.example.core.presentation.UiState
 import com.marvel.example.core.presentation.helpers.livedata.Event
 import com.marvel.example.core.presentation.helpers.livedata.toEvent
 import kotlinx.coroutines.GlobalScope
@@ -21,24 +21,24 @@ import javax.inject.Inject
 class CharactersDataSource @Inject constructor(
     private val getCharacters: GetCharacters
 ) : PositionalDataSource<Character>() {
-    private val _charactersState = MutableLiveData<Event<ActionState>>()
-    val charactersState: LiveData<Event<ActionState>> = _charactersState
+    private val _charactersState = MutableLiveData<Event<UiState>>()
+    val charactersUiState: LiveData<Event<UiState>> = _charactersState
 
     override fun invalidate() {
-        _charactersState.postValue(ActionState.Loading.toEvent())
+        _charactersState.postValue(UiState.Loading.toEvent())
         super.invalidate()
     }
 
     override fun loadInitial(params: LoadInitialParams, callback: LoadInitialCallback<Character>) {
         GlobalScope.launch {
-            _charactersState.postValue(ActionState.Loading.toEvent())
+            _charactersState.postValue(UiState.Loading.toEvent())
             try {
                 val getCharactersResult = getCharacters()
 
                 callback.onResult(getCharactersResult.data, 0, getCharactersResult.totalData)
-                _charactersState.postValue(ActionState.Complete.toEvent())
+                _charactersState.postValue(UiState.Complete.toEvent())
             } catch (exception: Exception) {
-                _charactersState.postValue(ActionState.Error(exception.localizedMessage).toEvent())
+                _charactersState.postValue(UiState.Error(exception.localizedMessage).toEvent())
             }
         }
     }
@@ -49,9 +49,9 @@ class CharactersDataSource @Inject constructor(
                 val marvelApiCharactersResponse = getCharacters(params.startPosition)
 
                 callback.onResult(marvelApiCharactersResponse.data)
-                _charactersState.postValue(ActionState.Complete.toEvent())
+                _charactersState.postValue(UiState.Complete.toEvent())
             } catch (exception: Exception) {
-                _charactersState.postValue(ActionState.Error(exception.localizedMessage).toEvent())
+                _charactersState.postValue(UiState.Error(exception.localizedMessage).toEvent())
             }
         }
     }

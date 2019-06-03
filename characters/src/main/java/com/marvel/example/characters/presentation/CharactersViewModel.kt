@@ -1,15 +1,12 @@
 package com.marvel.example.characters.presentation
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
-import androidx.paging.DataSource
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
-import com.marvel.example.core.presentation.ActionState
+import com.marvel.example.core.presentation.UiState
 import com.marvel.example.core.presentation.BaseViewModel
 import com.marvel.example.core.domain.entities.character.Character
-import com.marvel.example.characters.domain.GetCharacters
 import com.marvel.example.core.presentation.helpers.livedata.Event
 import javax.inject.Inject
 
@@ -29,8 +26,8 @@ class CharactersViewModel @Inject constructor(
 
     val characters: LiveData<PagedList<Character>> =
         LivePagedListBuilder<Int, Character>(charactersDataSourceFactory, config).build()
-    val charactersState: LiveData<Event<ActionState>> =
-        Transformations.switchMap(charactersDataSourceFactory.charactersDataSource) { it.charactersState }
+    val charactersUiState: LiveData<Event<UiState>> =
+        Transformations.switchMap(charactersDataSourceFactory.charactersDataSource) { it.charactersUiState }
 
     fun refresh() = charactersDataSourceFactory.charactersDataSource.value?.invalidate()
 }

@@ -6,8 +6,8 @@ package com.marvel.example.core.presentation
  * @author Kurt Renzo Acosta
  * @since 20/11/2018
  */
-sealed class ActionState {
-    object Complete : ActionState()
-    object Loading : ActionState()
-    class Error(val errorMessage: String) : ActionState()
+sealed class UiState {
+    object Complete : UiState()
+    object Loading : UiState()
+    class Error(val errorMessage: String) : UiState()
 }
