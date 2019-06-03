@@ -8,6 +8,7 @@ import com.marvel.example.core.domain.entities.character.Character
 import com.marvel.example.core.presentation.UiState
 import com.marvel.example.core.presentation.helpers.livedata.Event
 import com.marvel.example.core.presentation.helpers.livedata.toEvent
+import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -30,29 +31,25 @@ class CharactersDataSource @Inject constructor(
     }
 
     override fun loadInitial(params: LoadInitialParams, callback: LoadInitialCallback<Character>) {
-        GlobalScope.launch {
+        GlobalScope.launch(CoroutineExceptionHandler { _, exception ->
+            _charactersState.postValue(UiState.Error(exception.localizedMessage).toEvent())
+        }) {
             _charactersState.postValue(UiState.Loading.toEvent())
-            try {
-                val getCharactersResult = getCharacters()
+            val getCharactersResult = getCharacters()
 
-                callback.onResult(getCharactersResult.data, 0, getCharactersResult.totalData)
-                _charactersState.postValue(UiState.Complete.toEvent())
-            } catch (exception: Exception) {
-                _charactersState.postValue(UiState.Error(exception.localizedMessage).toEvent())
-            }
+            callback.onResult(getCharactersResult.data, 0, getCharactersResult.totalData)
+            _charactersState.postValue(UiState.Complete.toEvent())
         }
     }
 
     override fun loadRange(params: LoadRangeParams, callback: LoadRangeCallback<Character>) {
-        GlobalScope.launch {
-            try {
-                val marvelApiCharactersResponse = getCharacters(params.startPosition)
+        GlobalScope.launch(CoroutineExceptionHandler { _, exception ->
+            _charactersState.postValue(UiState.Error(exception.localizedMessage).toEvent())
+        }) {
+            val marvelApiCharactersResponse = getCharacters(params.startPosition)
 
-                callback.onResult(marvelApiCharactersResponse.data)
-                _charactersState.postValue(UiState.Complete.toEvent())
-            } catch (exception: Exception) {
-                _charactersState.postValue(UiState.Error(exception.localizedMessage).toEvent())
-            }
+            callback.onResult(marvelApiCharactersResponse.data)
+            _charactersState.postValue(UiState.Complete.toEvent())
         }
     }
 }
