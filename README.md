@@ -28,7 +28,7 @@ This project is built using Clean Architecture and is structured in the followin
 
 **data** -  contains data models and repositories for getting data
 
-**framework** - contains Activities/Fragments and their corresponding ViewModels and Adapters for the presentation layer
+**framework** - contains implementation details for network and db layer (Retrofit/Room/SQLDelight/Realm)
 
 **di** - contains classes for dependency injection. In this case, Dagger's components and modules.
 
