@@ -2,8 +2,9 @@ package com.marvel.example.characterdetails.presentation
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.marvel.example.characterdetails.domain.GetCharacterDetails
-import com.marvel.example.core.presentation.BaseViewModel
 import com.marvel.example.core.presentation.UiState
 import com.marvel.example.core.presentation.helpers.livedata.Event
 import com.marvel.example.core.presentation.helpers.livedata.toEvent
@@ -19,7 +20,7 @@ import kotlinx.coroutines.launch
 class CharacterDetailsViewModel(
     private val characterId: Int,
     private val getCharacterDetails: GetCharacterDetails
-) : BaseViewModel() {
+) : ViewModel() {
     private val _name = MutableLiveData<String>()
     val name: LiveData<String> = _name
 
@@ -37,7 +38,7 @@ class CharacterDetailsViewModel(
     }
 
     fun getCharacterDetails() {
-        uiScope.launch(CoroutineExceptionHandler { _, exception ->
+        viewModelScope.launch(CoroutineExceptionHandler { _, exception ->
             _getCharacterDetailsState.postValue(UiState.Error(exception.localizedMessage).toEvent())
         }) {
             _getCharacterDetailsState.postValue(UiState.Loading.toEvent())
