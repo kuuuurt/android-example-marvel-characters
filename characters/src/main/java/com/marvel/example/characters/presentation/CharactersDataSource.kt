@@ -9,6 +9,7 @@ import com.marvel.example.core.presentation.UiState
 import com.marvel.example.core.presentation.helpers.livedata.Event
 import com.marvel.example.core.presentation.helpers.livedata.toEvent
 import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -20,7 +21,8 @@ import javax.inject.Inject
  * @since 20/04/2019
  */
 class CharactersDataSource @Inject constructor(
-    private val getCharacters: GetCharacters
+    private val getCharacters: GetCharacters,
+    private val viewModelScope: CoroutineScope
 ) : PositionalDataSource<Character>() {
     private val _charactersState = MutableLiveData<Event<UiState>>()
     val charactersUiState: LiveData<Event<UiState>> = _charactersState
@@ -31,7 +33,7 @@ class CharactersDataSource @Inject constructor(
     }
 
     override fun loadInitial(params: LoadInitialParams, callback: LoadInitialCallback<Character>) {
-        GlobalScope.launch(CoroutineExceptionHandler { _, exception ->
+        viewModelScope.launch(CoroutineExceptionHandler { _, exception ->
             _charactersState.postValue(UiState.Error(exception.localizedMessage).toEvent())
         }) {
             _charactersState.postValue(UiState.Loading.toEvent())
@@ -43,7 +45,7 @@ class CharactersDataSource @Inject constructor(
     }
 
     override fun loadRange(params: LoadRangeParams, callback: LoadRangeCallback<Character>) {
-        GlobalScope.launch(CoroutineExceptionHandler { _, exception ->
+        viewModelScope.launch(CoroutineExceptionHandler { _, exception ->
             _charactersState.postValue(UiState.Error(exception.localizedMessage).toEvent())
         }) {
             val marvelApiCharactersResponse = getCharacters(params.startPosition)

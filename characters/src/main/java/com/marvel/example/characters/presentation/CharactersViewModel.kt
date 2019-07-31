@@ -3,6 +3,7 @@ package com.marvel.example.characters.presentation
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
 import com.marvel.example.characters.domain.GetCharacters
@@ -20,7 +21,7 @@ import javax.inject.Inject
 class CharactersViewModel @Inject constructor(
     getCharacters: GetCharacters
 ) : ViewModel() {
-    private val charactersDataSourceFactory = CharactersDataSourceFactory(getCharacters)
+    private val charactersDataSourceFactory = CharactersDataSourceFactory(getCharacters, viewModelScope)
 
     private val config = PagedList.Config.Builder()
         .setPageSize(20)
